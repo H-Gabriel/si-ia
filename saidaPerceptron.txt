@@ -1,0 +1,19 @@
+=-=-=-=-=-Acurácia-=-=-=-=-=
+media 99.49702380952381
+máximo 100.0
+minimo 89.73214285714286
+desvio padrão 1.16314991707511
+
+
+=-=-=-=-=-Sensibilidade-=-=-=-=-=
+media 99.37165331797789
+máximo 100.0
+minimo 97.7124183006536
+desvio padrão 0.5518346502499328
+
+
+=-=-=-=-=-Especificidade-=-=-=-=-=
+media 99.58508349868757
+máximo 100.0
+minimo 80.72625698324022
+desvio padrão 2.2150631600826736

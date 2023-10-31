@@ -14,6 +14,14 @@ y = Data[:, 2].reshape((n, 1))
 print(f"Shape de x: {x.shape}") # p+1 x n
 print(f"Shape de y: {y.shape}") # n x 1
 
+def plotar():
+    plt.clf()
+    plt.ylim(-10, 5)
+    plt.scatter(Data[:, :2][0:1500,0],Data[:, :2][0:1500,1],color='blue',edgecolors='k')
+    plt.scatter(Data[:, :2][1500:,0],Data[:, :2][1500:,1],color='red',edgecolors='k')
+    plt.plot(x1, x2, color = 'k', linewidth=3) 
+    plt.show()
+
 def sinal(u):
     if u>=0:
         return 1
@@ -54,10 +62,12 @@ for r in range(rodadas):
 
     #w = np.zeros((p+1, 1))
     w = np.random.rand(p+1, 1)
+    x1 = np.linspace(-12, 12, n)
+    x2 = np.zeros((n,))
     EQM1 = 1
     EQM2 = 0
     LR = 1e-3
-    pr = 1e-3
+    pr = 1e-5
 
     epoch = 0
     maxEpoch = 5000
@@ -70,8 +80,9 @@ for r in range(rodadas):
             e_t = (d_t-u_t)
             w = w + e_t*x_t*LR
         epoch+=1
+        x2 = -x1 * (w[1, 0] / w[2, 0]) + w[0, 0] / w[2, 0]
         EQM2 = EQM(x_treino,y_treino,w)
-
+    #plotar()
     mc = np.zeros((2,2), dtype=int)
     for i in range(x_teste.shape[1]):
         x_t = x_teste[:, i].reshape(p+1,1)
